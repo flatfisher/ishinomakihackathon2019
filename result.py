@@ -63,7 +63,6 @@ def main():
         if results:
          #print(results[0][1])
          #camera.annotate_text = displayString(results[0][0])
-         print(displayString(results[0][0]))
          camera.annotate_text = '%s %.2f\n%.2fms' % (
             results[0][0], results[0][1], elapsed_ms * 1000.0)
     finally:

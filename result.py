@@ -25,7 +25,7 @@ import picamera
 # orverlay
 o = None
 
-def displayImage(code:int):
+def displayImage(camera, code:int):
   global o
   if o == None:
     camera.remove_overlay(o)
@@ -70,7 +70,7 @@ def main():
          #camera.annotate_text = displayString(results[0][0])
          print(displayImage(results[0][0]))
          camera.annotate_text = '%s %.2f\n%.2fms' % (
-            displayImage(results[0][0]), results[0][1], elapsed_ms * 1000.0)
+            displayImage(camera, results[0][0]), results[0][1], elapsed_ms * 1000.0)
     finally:
       camera.stop_preview()
 

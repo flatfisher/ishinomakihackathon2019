@@ -22,7 +22,7 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-o = none
+o = None
 
 def displayImage(code:int):
     global o

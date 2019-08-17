@@ -22,18 +22,20 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-def displayString(code:int, camera):
-    remove_overlay();
-    if code == 0:
-        img = Image.open('./images/demo1.ping')
-    elif code == 1:
-        img = Image.open('./images/demo1.ping')
-    elif code == 2:
-        img = Image.open('./images/demo1.ping')
-    elif code == 3:
-        img = Image.open('./images/demo1.ping')
+o = none
 
-    camera.add_overlay(img, size=img.size)
+def displayImage(code:int):
+    global o
+    o = None
+    camera.remove_overlay(o);
+    if code == 0:
+        picamera.PiCamera().add_overlay('./images/demo1.ping')
+    elif code == 1:
+        picamera.PiCamera().add_overlay('./images/demo2.ping')
+    elif code == 2:
+        picamera.PiCamera().add_overlay('./images/demo3.ping')
+    elif code == 3:
+        picamera.PiCamera().add_overlay('./images/demo4.ping')
 
 def main():
   parser = argparse.ArgumentParser()
@@ -61,10 +63,9 @@ def main():
         results = engine.ClassifyWithInputTensor(input_tensor, top_k=1)
         elapsed_ms = time.time() - start_ms
         if results:
-         #print(results[0][1])
-         #camera.annotate_text = displayString(results[0][0])
-         camera.annotate_text = '%s %.2f\n%.2fms' % (
-            results[0][0], results[0][1], elapsed_ms * 1000.0)
+         displayImage(results[0][0])
+         #camera.annotate_text = '%s %.2f\n%.2fms' % (
+         #    results[0][0], results[0][1], elapsed_ms * 1000.0)
     finally:
       camera.stop_preview()
 

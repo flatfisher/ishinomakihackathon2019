@@ -27,10 +27,10 @@ from PIdL import Image
 # orverlay
 o = None
 # images
-image1 = io.BytesIO(Image.open('./images/demo1.png')).getvalue()
-image2 = io.BytesIO(Image.open('./images/demo2.png')).getvalue()
-image3 = io.BytesIO(Image.open('./images/demo3.png')).getvalue()
-image4 = io.BytesIO(Image.open('./images/demo4.png')).getvalue()
+image1 = open('./images/demo1.png', 'rb')
+image2 = open('./images/demo2.png', 'rb')
+image3 = open('./images/demo3.png', 'rb')
+image4 = open('./images/demo4.png', 'rb')
 
 def displayImage(camera, code:int):
   global o

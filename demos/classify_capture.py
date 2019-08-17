@@ -22,21 +22,6 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-o = None
-
-# def displayImage(code:int):
-#     global o
-#     if not o == None
-#         picamera.PiCamera().remove_overlay(o);
-
-#     if code == 0:
-
-#     elif code == 1:
-#         o = picamera.PiCamera().add_overlay('./images/demo2.ping')
-#     elif code == 2:
-#         o = picamera.PiCamera().add_overlay('./images/demo3.ping')
-#     elif code == 3:
-#         o = picamera.PiCamera().add_overlay('./images/demo4.ping')
 
 def main():
   parser = argparse.ArgumentParser()
@@ -64,9 +49,8 @@ def main():
         results = engine.ClassifyWithInputTensor(input_tensor, top_k=1)
         elapsed_ms = time.time() - start_ms
         if results:
-        #  displayImage(results[0][0])
-         camera.annotate_text = '%s %.2f\n%.2fms' % (
-            labels[results[0][0]], results[0][1], elapsed_ms * 1000.0)
+          camera.annotate_text = '%s %.2f\n%.2fms' % (
+              labels[results[0][0]], results[0][1], elapsed_ms * 1000.0)
     finally:
       camera.stop_preview()
 

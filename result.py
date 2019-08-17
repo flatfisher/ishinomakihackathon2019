@@ -23,12 +23,12 @@ import numpy as np
 import picamera
 
 # orverlay
-o = null
+o = None
 
 def displayImage(code:int):
-  if o == null:
+  if o == None:
     camera.remove_overlay(o)
-    o = null
+    o = None
 
   if code == 0:
     o = camera.add_overlay('./images/demo1.png')

@@ -25,13 +25,13 @@ import picamera
 def displayString(code:int, camera):
     remove_overlay();
     if code == 0:
-        return img = Image.open('./images/demo1.ping')
+        img = Image.open('./images/demo1.ping')
     elif code == 1:
-        return img = Image.open('./images/demo1.ping')
+        img = Image.open('./images/demo1.ping')
     elif code == 2:
-        return img = Image.open('./images/demo1.ping')
+        img = Image.open('./images/demo1.ping')
     elif code == 3:
-        return img = Image.open('./images/demo1.ping')
+        img = Image.open('./images/demo1.ping')
 
     camera.add_overlay(img, size=img.size)
 

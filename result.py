@@ -22,15 +22,18 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-def displayString(code:int):
+def displayString(code:int, camera):
+    remove_overlay();
     if code == 0:
-        return b"あああ"
+        return img = Image.open('./images/demo1.ping')
     elif code == 1:
-        return b"いいい"
+        return img = Image.open('./images/demo1.ping')
     elif code == 2:
-        return b"ううう"
+        return img = Image.open('./images/demo1.ping')
     elif code == 3:
-        return b"えええ"
+        return img = Image.open('./images/demo1.ping')
+
+    camera.add_overlay(img, size=img.size)
 
 def main():
   parser = argparse.ArgumentParser()

@@ -26,7 +26,7 @@ o = None
 
 def displayImage(code:int):
     global o
-    if o != None
+    if not o == None
         picamera.PiCamera().remove_overlay(o);
 
     if code == 0:

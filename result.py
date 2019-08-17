@@ -26,16 +26,17 @@ o = None
 
 def displayImage(code:int):
     global o
-    o = None
-    picamera.PiCamera().remove_overlay(o);
+    if(o != None)
+        picamera.PiCamera().remove_overlay(o);
+        
     if code == 0:
-        picamera.PiCamera().add_overlay('./images/demo1.ping')
+        o = picamera.PiCamera().add_overlay('./images/demo1.ping')
     elif code == 1:
-        picamera.PiCamera().add_overlay('./images/demo2.ping')
+        o = picamera.PiCamera().add_overlay('./images/demo2.ping')
     elif code == 2:
-        picamera.PiCamera().add_overlay('./images/demo3.ping')
+        o = picamera.PiCamera().add_overlay('./images/demo3.ping')
     elif code == 3:
-        picamera.PiCamera().add_overlay('./images/demo4.ping')
+        o = picamera.PiCamera().add_overlay('./images/demo4.ping')
 
 def main():
   parser = argparse.ArgumentParser()

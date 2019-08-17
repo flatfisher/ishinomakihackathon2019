@@ -27,7 +27,7 @@ o = None
 def displayImage(code:int):
     global o
     o = None
-    camera.remove_overlay(o);
+    picamera.PiCamera().remove_overlay(o);
     if code == 0:
         picamera.PiCamera().add_overlay('./images/demo1.ping')
     elif code == 1:

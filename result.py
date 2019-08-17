@@ -27,9 +27,9 @@ o = None
 
 def displayImage(camera, code:int):
   global o
-  if o == None:
-    camera.remove_overlay(o)
-    o = None
+  # if o == None:
+  #   camera.remove_overlay(o)
+  #   o = None
 
   if code == 0:
     o = camera.add_overlay('./images/demo1.png')

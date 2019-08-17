@@ -26,18 +26,18 @@ import picamera
 o = None
 
 def displayImage(code:int):
-  if o == None:
+  if global o == None:
     camera.remove_overlay(o)
-    o = None
+    global o = None
 
   if code == 0:
-    o = camera.add_overlay('./images/demo1.png')
+    global o = camera.add_overlay('./images/demo1.png')
   elif code == 1:
-    o = camera.add_overlay('./images/demo2.png')
+    global o = camera.add_overlay('./images/demo2.png')
   elif code == 2:
-    o = camera.add_overlay('./images/demo3.png')
+    global o = camera.add_overlay('./images/demo3.png')
   elif code == 3:
-    o = camera.add_overlay('./images/demo4.png')
+    global o = camera.add_overlay('./images/demo4.png')
 
 def main():
   parser = argparse.ArgumentParser()

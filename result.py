@@ -22,15 +22,15 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-from PIL import Image
+from PIdL import Image
 
 # orverlay
 o = None
 # images
-image1 = Image.open('./images/demo1.png')
-image2 = Image.open('./images/demo2.png')
-image3 = Image.open('./images/demo3.png')
-image4 = Image.open('./images/demo4.png')
+image1 = io.BytesIO(Image.open('./images/demo1.png')).getvalue()
+image2 = io.BytesIO(Image.open('./images/demo2.png')).getvalue()
+image3 = io.BytesIO(Image.open('./images/demo3.png')).getvalue()
+image4 = io.BytesIO(Image.open('./images/demo4.png')).getvalue()
 
 def displayImage(camera, code:int):
   global o

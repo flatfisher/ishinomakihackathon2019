@@ -22,15 +22,22 @@ from edgetpu.utils import dataset_utils
 import numpy as np
 import picamera
 
-def displayString(code:int):
-    if code == 0:
-        return b"あああ"
-    elif code == 1:
-        return b"いいい"
-    elif code == 2:
-        return b"ううう"
-    elif code == 3:
-        return b"えええ"
+# orverlay
+o = null
+
+def displayImage(code:int):
+  if o == null:
+    camera.remove_overlay(o)
+    o = null
+
+  if code == 0:
+    o = camera.add_overlay('./images/demo1.png')
+  elif code == 1:
+    o = camera.add_overlay('./images/demo2.png')
+  elif code == 2:
+    o = camera.add_overlay('./images/demo3.png')
+  elif code == 3:
+    o = camera.add_overlay('./images/demo4.png')
 
 def main():
   parser = argparse.ArgumentParser()
@@ -62,7 +69,7 @@ def main():
          #camera.annotate_text = displayString(results[0][0])
          print(displayString(results[0][0]))
          camera.annotate_text = '%s %.2f\n%.2fms' % (
-            displayString(results[0][0]), results[0][1], elapsed_ms * 1000.0)
+            displayImage(results[0][0]), results[0][1], elapsed_ms * 1000.0)
     finally:
       camera.stop_preview()
 

@@ -24,21 +24,30 @@ import picamera
 
 # orverlay
 o = None
+# images
+image1 = Image.open('./images/demo1.png')
+image2 = Image.open('./images/demo2.png')
+image3 = Image.open('./images/demo3.png')
+image4 = Image.open('./images/demo4.png')
 
 def displayImage(camera, code:int):
   global o
+  global image1
+  global image2
+  global image3
+  global image4
   # if o == None:
   #   camera.remove_overlay(o)
   #   o = None
 
   if code == 0:
-    o = camera.add_overlay('./images/demo1.png')
+    o = camera.add_overlay(image1)
   elif code == 1:
-    o = camera.add_overlay('./images/demo2.png')
+    o = camera.add_overlay(image2)
   elif code == 2:
-    o = camera.add_overlay('./images/demo3.png')
+    o = camera.add_overlay(image3)
   elif code == 3:
-    o = camera.add_overlay('./images/demo4.png')
+    o = camera.add_overlay(image4)
 
 def main():
   parser = argparse.ArgumentParser()
